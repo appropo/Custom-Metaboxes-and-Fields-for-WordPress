@@ -59,6 +59,18 @@ class cmb_Meta_Box_Validate {
  * If resources do not load, please check the wiki for details.
  */
 define('CMB_META_BOX_URL', WPMU_PLUGIN_URL . '/' . array_pop( explode( '/', dirname( realpath( __FILE__ ) ) ) ) . '/' );
+define('CMB_META_BOX_DIR', WPMU_PLUGIN_DIR . '/' . array_pop( explode( '/', dirname( realpath( __FILE__ ) ) ) ) . '/' );
+
+
+/* ------------------------------
+ * Require the template tags (tt)
+ * ------------------------------ */
+$dir = CMB_META_BOX_DIR . 'template-tags/';
+
+foreach ( glob($dir . "tt_*.php") as $filename ) {
+    require_once($filename);
+};
+
 
 /**
  * Create meta boxes
