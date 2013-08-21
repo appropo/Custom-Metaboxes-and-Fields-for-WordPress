@@ -18,6 +18,14 @@
 		// Write keys to keys and values to values
 		foreach ($results as $item) {
 			$segment_ix = substr(strrchr($item['meta_key'], '_'),1);
+			$id_field	= false;
+
+			// Remove id token and add it after all cleaning
+			if ( strrchr($item['meta_key'], '_') == "_id") {
+				$id_field 		  = true;
+				$id_token 		  = intval(strlen(strrchr($item['meta_key'], '_')));
+				$item['meta_key'] = substr($item['meta_key'], 0, strlen($item['meta_key']) - $id_token);
+			};
 
 			$rep_token 		= intval(strlen(strrchr($item['meta_key'], '_')));
 
@@ -26,6 +34,11 @@
 
 			// Strip box name
 			$formated_key	= substr($formated_key, intval(strlen($box_name)) + 1 );
+
+			if ( $id_field == true ) {
+				$formated_key .= "_id";
+				$id_field 	  = false;
+			};
 
 			$segments[$segment_ix][$formated_key] = $item['meta_value'];
 		};
