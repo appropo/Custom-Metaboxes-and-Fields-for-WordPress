@@ -17,7 +17,6 @@
 
 		// Write keys to keys and values to values
 		foreach ($results as $item) {
-			$segment_ix = substr(strrchr($item['meta_key'], '_'),1);
 			$id_field	= false;
 
 			// Remove id token and add it after all cleaning
@@ -26,6 +25,8 @@
 				$id_token 		  = intval(strlen(strrchr($item['meta_key'], '_')));
 				$item['meta_key'] = substr($item['meta_key'], 0, strlen($item['meta_key']) - $id_token);
 			};
+
+			$segment_ix = substr(strrchr($item['meta_key'], '_'),1);
 
 			$rep_token 		= intval(strlen(strrchr($item['meta_key'], '_')));
 
