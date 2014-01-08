@@ -91,7 +91,7 @@ define( 'CMB_META_BOX_URL', get_cmb_meta_box_url() );
 /* ------------------------------
  * Require the template tags (tt)
  * ------------------------------ */
-$dir = CMB_META_BOX_DIR . 'template-tags/';
+$dir = dirname( __FILE__ ) . '/template-tags/';
 
 foreach ( glob($dir . "tt_*.php") as $filename ) {
     require_once($filename);
