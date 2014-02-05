@@ -1,6 +1,7 @@
 {
-    "name": "appropo/custom-metaboxes-and-fields-for-wordpress",
+    "name": "appropo/Custom-Metaboxes-and-Fields-for-WordPress",
     "type": "wordpress-plugin",
+    "version": "1.0.0",
     "require": {
         "composer/installers": "~1.0"
     }
